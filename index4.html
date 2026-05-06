@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shejal Dhakate | Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif
+        }
+
+        body {
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            color: #fff;
+            scroll-behavior: smooth
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 20px
+        }
+
+        header {
+            text-align: center;
+            padding: 80px 20px
+        }
+
+        h1 {
+            font-size: 52px
+        }
+
+        .typing {
+            color: #00e5ff;
+            border-right: 3px solid #00e5ff;
+            padding-right: 5px
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 25px;
+            border-radius: 25px;
+            background: #00e5ff;
+            color: #000;
+            text-decoration: none;
+            font-weight: 600;
+            transition: .3s
+        }
+
+        .btn:hover {
+            transform: scale(1.05)
+        }
+
+        section {
+            padding: 60px 0
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 30px
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            transition: .4s;
+            cursor: pointer
+        }
+
+        .card:hover {
+            transform: translateY(-10px) scale(1.03)
+        }
+
+        .card img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 10px
+        }
+
+        .fade {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: 1s
+        }
+
+        .fade.show {
+            opacity: 1;
+            transform: translateY(0)
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #aaa
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Shejal Dhakate</h1>
+        <h3 class="typing"></h3>
+        <a href="Rinkuresume.pdf" download class="btn">Download Resume</a>
+    </header>
+    <div class="container">
+        <section class="fade">
+            <h2>About Me</h2>
+            <p style="text-align:center;color:#ddd">Aspiring Data Analyst skilled in Python, SQL, and visualization. I
+                turn data into insights.</p>
+        </section>
+        <section class="fade">
+            <h2>Skills</h2>
+            <div class="grid">
+                <div class="card">Python</div>
+                <div class="card">SQL</div>
+                <div class="card">Power BI</div>
+                <div class="card">Excel</div>
+                <div class="card">Pandas</div>
+                <div class="card">HTML/CSS</div>
+            </div>
+        </section>
+
+        </section>
+        <section>
+            <h2>Projects</h2>
+            <div class="projects">
+                <div class="fade">
+                    <h3>Student Attendance Management System</h3>
+                    <p>Developed a web-based system to manage student attendance with add, update, delete features.</p>
+                    <p><b>Tech:</b> Java, MySQL</p>
+                    <p><a href="https://github.com/shejal24-rgb" style="color:#00c6ff">GitHub Link</a></p>
+                </div>
+            </div>
+        </section>
+        <section>
+            <h2>Education</h2>
+            <div class="fade">
+                <ul>
+                    <li>BCA - Sant Gadge Baba Amravati University (2024–2026) | CGPA: 8.42</li>
+                    <li>HSC: 58.67%</li>
+                    <li>SSC: 81.80%</li>
+                    <li>Cgpa: 8.52</li>
+                </ul>
+            </div>
+        </section>
+        <section>
+            <h2>Internship & Certifications</h2>
+            <div class="fade">
+                <ul>
+                    <li>Python Intern - Disha Computer Institute (July 2025 – Aug 2025)</li>
+                    <li>Tata GenAI Data Analytics Simulation</li>
+                    <li>Deloitte Data Analytics Certificate</li>
+                </ul>
+            </div>
+        </section>
+        <section class="fade">
+            <h2>Contact</h2>
+            <p style="text-align:center">📧 shejaldhakate@gmail.com</p>
+            <p style="text-align:center;">🔗 <a href="https://linkedin.com/in/shejaldhakate"
+                    style="color:#00c6ff">LinkedIn</a></p>
+            <p style="text-align:center;">💻 <a href="https://github.com/shejal24-rgb" style="color:#00c6ff">GitHub</a>
+            </p>
+        </section>
+    </div><!-- Modal -->
+    <div id="modal"
+        style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:#0009;align-items:center;justify-content:center">
+        <div style="background:#222;padding:20px;border-radius:10px;max-width:400px;text-align:center">
+            <h3 id="mTitle"></h3>
+            <p id="mDesc"></p>
+            <button class="btn" onclick="closeModal()">Close</button>
+        </div>
+    </div>
+    <script>
+        // Typing Effect
+        const text = "Data Analyst | Python | SQL | Power BI";
+        let i = 0;
+        function type() {
+            if (i < text.length) {
+                document.querySelector('.typing').innerHTML += text.charAt(i);
+                i++; setTimeout(type, 50);
+            }
+        }
+        type();
+
+        // Scroll Animation
+        const fades = document.querySelectorAll('.fade');
+        window.addEventListener('scroll', () => {
+            fades.forEach(el => {
+                const top = el.getBoundingClientRect().top;
+                if (top < window.innerHeight - 100) { el.classList.add('show') }
+            })
+        })
+
+        // Modal
+        function openModal(title, desc) {
+            document.getElementById('modal').style.display = 'flex';
+            document.getElementById('mTitle').innerText = title;
+            document.getElementById('mDesc').innerText = desc;
+        }
+        function closeModal() {
+            document.getElementById('modal').style.display = 'none';
+        }
+    </script>
+    <footer>
+        <p>© 2026 Shejal Dhakate</p>
+    </footer>
+</body>
+
+</html>
